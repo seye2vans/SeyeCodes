@@ -1,0 +1,152 @@
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-wedith,initial-scale=1.0">
+            <title>Envelope Styling</title>
+            <style>
+                .envelope-container{
+    margin: 150px;
+    position: relative;
+    width: 200px;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 150px;
+    background-color:#f9c5c8;
+    border: 2px solid #0000;
+    border: radius 10px; ;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    animation: flowerAnimation 0.9s ease forwards;
+    
+
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8e7e7;
+}
+.container{
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+
+
+    .envelop-flap{
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 50px solid transparent;
+        position: absolute;
+        top: -50px;
+        left: calc(50% - 50px);
+    }
+    #message{
+        text-align:  center;
+        font-size: 18px;
+        color: #333;
+    }
+       .button-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+        justify-self: space-between;
+        margin-top: 20px;
+       }
+       .option-buttons{
+        display:none;
+        margin-top: 20px;
+        text-align: center;
+       }
+       .button-container button{
+        padding: 10px 20px;
+        border: 1px solid #0000;
+        border-radius: 5px;
+        background-color: #d89296;
+        cursor: pointer;
+       }
+       .flower{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color:aquamarine;
+            border-radius: 50%;
+            animation: flowerAnimation 4s;
+            z-index: -1;
+        }
+
+        
+        @keyframes flowerAnimation{
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50%{
+                transform:translateY(-20px) rotate(45deg);
+            }
+          100%{
+            transform: translateY(0) rotate(0deg);
+        }
+        }
+       
+        .flower:nth-child(2){
+            animation-delay: 1s;
+        }
+        .flower:nth-child(3){
+            animation-delay: 2s;
+        }
+        .flower:nth-child(4){
+            animation-delay: 3s;
+        }
+           </style>
+        </head>
+        <body>
+            < class="envelope-container">
+                <div class="envelop-flap"></div>
+                <p id= "message">    Click "Open"  to reveal the message.</p>
+                <div class="button-container">
+                    <button
+                     onclick="openEnvelope()">Open</button>
+                     
+                    <button
+                     onclick="resetEnvelope()">Reset</button>
+            </div>
+            <div class="option-buttons">
+                <button onclick="chooseOption('YES')">YES</button>
+                <button onclick="chooseOption('NO')">NO</button>
+            </div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            </div>
+          
+
+            <script>
+                function openEnvelope(){
+                    document.getElementById("message").innerText =   "Will you be my VAL?";
+                    document.querySelector(".option-buttons").style.display ="block";
+
+                }
+                function resetEnvelope(){
+                    document.getElementById("message").innerText= "Click \"Open\" to reveal the message.";
+                    document.querySelector("option-buttons").style.display = "none";
+                     }
+                function chooseOption(option){
+                    alert("You chose " + option)
+
+                }
+               
+            </script>
+        </body>
+            </html>
