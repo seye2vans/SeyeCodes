@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-wedith,initial-scale=1.0">
+            <link rel ="Stylesheet" type="text/css" href="style.css">
+            <title>My portfolio</title>
+            <head>
+                <body>
+                    
+                    <header class="header">
+                        <a href="#home" class="Mylogo" onclick="showAlert('Home clicked')">My <span>portfolio</span></a>
+                        <nav class="navbar">
+                            <a href="#home" onclick="showAlert('Back to the home page')">HOME</a>
+                            <a href="#about me" onclick="showAlert('There is a lot about me')">ABOUT ME</a>
+                            <a href="#Services" onclick="showAlert('Building of websites')">SERVICES</a>
+                            <a href="#Contact" onclick="showAlert('Contact us on Whatsapp, tel: 09135689758')">CONTACT</a>
+
+                        </nav>
+                    </header>
+                    <section id="home" class="home">
+                        <div class="content">
+                            <h3>Hi, Everyone</h3>
+                            <h1>I'm <span> Olaleye Victor</span></h1>
+                            <h3>Front-end Developer</h3><br>
+                            <p>I'm a newbie practicing to create a website.<br>
+                                <p>So basiclly i started programming a few month ago and i'm doing well,
+                            Need the help and support i can get </p>
+                        </div>
+                        <div class="image-container">
+                            <img src="images/Seye.jpg">
+
+                        </div>
+                        <div class="content animate">
+                            
+                        </div>
+                    </section>
+                   <script>
+                    function showAlert(message){
+                        alert(message)
+                    }
+
+                    document.addEventListener("DOMContentLoaded", function( ){
+                        var content = document.querySelector('.content');
+                        
+                        window.addEventListener('Scroll', function( ){
+                            if(isElementInViewport(content)){
+                                content.classList.add('animate')
+                            }
+                        })
+                    })
+                    function isElementInViewport(el){
+                        var rect =el.getBoundingClientRect();
+                        return(
+                            rect.top>=0 &&
+                            rect.left>=0 &&
+                            rect.bottom<= (window.innerHeight || document.documentElement.clientHeight) &&
+                            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                        )
+                    }
+
+    
+                
+                   </script> 
+                </body>
+            </head>
+
+
+            *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    color: rgb(11,11,11);
+}
+.header{
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100;
+    padding: 20px 20px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    color: rgb(255,255,255,);
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgba(0, 0, 0, 0.150);
+}
+.mylogo{
+    position: relative;
+    font-size: 25px;
+    color: rgb(225,225,225);
+    text-decoration: none;
+    font-weight: 800;
+    cursor: pointer;
+}
+.navbar a{
+    position:relative; 
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left:30px ;
+}
+.navbar a:hover{
+    color: blue;
+}
+.home{
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    background-color: rgb(0,0,50);
+    padding: 70px 10%;
+}
+.content{
+    max-width: 600px;
+    animation: fadeInUp 1.5s ease-out;
+    
+}
+@keyframes fadeInUP{
+    from{
+        opacity: o;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.content h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+}
+.content h1{
+    font-size: 50px;
+   font-weight: 700;
+   margin: -3px 0;
+   color: white; 
+}
+span{
+    color: blue;
+}
+.content p{
+    display: inline;
+    justify-content:center ;
+    align-items: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    color: rgb(183,183, 183);
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+}
+.image-container{
+    position: absolute;
+    top: 25%;
+    right: 100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.image-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+html{
+    scroll-behavior: auto;
+}
